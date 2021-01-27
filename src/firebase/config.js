@@ -1,5 +1,5 @@
 import firebase from "firebase/app";
-import "firebase/firestone";
+import "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.VUE_APP_APIKEY,
@@ -10,10 +10,11 @@ const firebaseConfig = {
   appId: process.env.VUE_APP_APPID,
 };
 
-// Init Firebase
+// init firebase
 firebase.initializeApp(firebaseConfig);
 
-// Init Firestore service
+// init firestore service
 const projectFirestore = firebase.firestore();
 
+// export firestore
 export { projectFirestore };

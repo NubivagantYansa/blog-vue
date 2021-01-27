@@ -8,15 +8,19 @@
 
 <script>
 import { onMounted, onUnmounted, onUpdated } from 'vue'
+
 // component imports
 import SinglePost from './SinglePost.vue'
+
 export default {
   props: ['posts'],
   components: { SinglePost },
   setup() {
+
   }
 }
 </script>
 
 <style>
+
 </style>

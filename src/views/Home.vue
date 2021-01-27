@@ -14,15 +14,18 @@
 <script>
 import { ref } from 'vue'
 import getPosts from '../composables/getPosts'
+
 // component imports
 import PostList from '../components/PostList.vue'
 import Spinner from '../components/Spinner.vue'
 import TagCloud from '../components/TagCloud.vue'
+
 export default {
   name: 'Home',
   components: { PostList, Spinner, TagCloud },
   setup() { 
     const { posts, error, load } = getPosts()
+
     load()
     
     return { posts, error }

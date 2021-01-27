@@ -11,9 +11,11 @@
 
 <script>
 import useTags from '../composables/useTags'
+
 export default {
   setup(props) {
     const { tags } = useTags(props.posts)
+
     return { tags }
   },
   props: ['posts']

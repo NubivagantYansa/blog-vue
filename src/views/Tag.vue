@@ -18,15 +18,19 @@ import PostList from '../components/PostList.vue'
 import getPosts from '../composables/getPosts'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
+
 export default {
   components: { PostList, Spinner, TagCloud },
   setup() {
     const route = useRoute()
     const { posts, error, load } = getPosts()
+
     load()
+
     const postsWithTag = computed(() => {
       return posts.value.filter(p => p.tags.includes(route.params.tag))
     })
+
     return { error, posts, postsWithTag }
   }
 }

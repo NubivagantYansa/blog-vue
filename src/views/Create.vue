@@ -22,14 +22,19 @@
 <script>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+
 export default {
   setup() {
     const title = ref('')
     const body = ref('')
     const tags = ref([])
     const tag = ref('')
+
     const router = useRouter()
-    
+    //console.log(router)
+    //router.go(1)
+    //router.go(-1)
+
     const handleKeydown = () => {
       if (!tags.value.includes(tag.value)) {
         tag.value = tag.value.replace(/\s/g,'') // remove all whitespace
@@ -37,6 +42,7 @@ export default {
       }
       tag.value = ''
     }
+
     const handleSubmit = async () => {
       const post = {
         id: Math.floor(Math.random() * 10000),
@@ -44,13 +50,16 @@ export default {
         body: body.value,
         tags: tags.value
       }
+
       await fetch('http://localhost:3000/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify(post)
       })
+
       router.push({ name: 'Home' })
     }
+
     return { body, title, tags, tag, handleKeydown, handleSubmit }
   },
 }
