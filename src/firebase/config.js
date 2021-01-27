@@ -6,7 +6,7 @@ const firebaseConfig = {
   authDomain: "blog-vue-ffd4e.firebaseapp.com",
   projectId: process.env.VUE_APP_PROJECTID,
   storageBucket: "blog-vue-ffd4e.appspot.com",
-  messagingSenderId: "5454428996",
+  messagingSenderId: process.env.VUE_APP_MESS_SENDER_ID,
   appId: process.env.VUE_APP_APPID,
 };
 
